@@ -11,19 +11,26 @@
 
     <script>
       var cryptoZombies;
+      // 1. declare `userAccount` here
 
       function startApp() {
         var cryptoZombiesAddress = "YOUR_CONTRACT_ADDRESS";
         cryptoZombies = new web3js.eth.Contract(cryptoZombiesABI, cryptoZombiesAddress);
+
+        // 2. Create `setInterval` code here
       }
 
       function getZombieDetails(id) {
-        return cryptoZombies.methods.zombies(id).call();
+        return cryptoZombies.methods.zombies(id).call()
       }
 
-      // 1. Define `zombieToOwner` here
+      function zombieToOwner(id) {
+        return cryptoZombies.methods.zombieToOwner(id).call()
+      }
 
-      // 2. Define `getZombiesByOwner` here
+      function getZombiesByOwner(owner) {
+        return cryptoZombies.methods.getZombiesByOwner(owner).call()
+      }
 
       window.addEventListener('load', function() {
 
