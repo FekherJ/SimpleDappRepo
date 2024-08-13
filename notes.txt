@@ -1,0 +1,41 @@
+Modifiers:
+Example: function test() external view onlyOwner anotherModifier { /* ... */ }
+
+
+Visibility Modifiers:
+- Private means it's only callable from other functions inside the contract; 
+- Internal is like private but can also be called by contracts that inherit from this one; 
+- External can only be called outside the contract; 
+- Public can be called anywhere, both internally and externally.
+
+
+
+State modifiers: which tell us how the function interacts with the BlockChain: 
+
+- View tells us that by running the function, no data will be saved/changed. 
+- Pure tells us that not only does the function not save any data to the blockchain, but it also doesn't read any data from the blockchain. 
+
+Both of these don't cost any gas to call if they're called externally from outside the contract (but they do cost gas if called internally by another function).
+
+
+custom modifiers :
+
+- OnlyOwner and aboveLevel, for example. For these we can define custom logic to determine how they affect a function.
+
+
+Payable functions: they are a special type of function that can receive Ether.
+
+is Ownable: to enherit functions from Ownable contract.
+
+Why ERC721 and not ERC20 ? Because ERC 721 tokens are not interchangeable since each one is assumed to be unique, and are not divisible 
+
+We can use libraries like SafeMath to prevent overflows and underflows
+
+
+Ethereum nodes only speak a language called JSON-RPC, Web3.js hides these nasty queries below the surface, so you only need to interact with a JavaScript interface.
+Example: 
+CryptoZombies.methods.createRandomZombie("Vitalik Nakamoto 🤔").send({ from: "0xb60e8dd61c5d32be8058bb8eb970870f07233155", gas: "3000000" })
+
+Infura is a service that maintains a set of Ethereum nodes with a caching layer for fast reads, which you can access for free through their API. Using Infura as a provider, you can reliably send and receive messages to/from the Ethereum blockchain without needing to set up and maintain your own node.
+
+
